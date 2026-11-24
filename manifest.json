@@ -1,0 +1,1 @@
+{"name":"Bitácora de ubicación","short_name":"Ubicación","description":"Consulta tu ubicación o selecciona una zona manualmente.","start_url":"./","scope":"./","display":"standalone","background_color":"#f5f6f1","theme_color":"#143c39","icons":[{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]}

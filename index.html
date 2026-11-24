@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#143c39">
+  <meta name="description" content="Consulta tu ubicación con consentimiento o selecciona una zona manualmente.">
+  <title>Bitácora | Mi ubicación</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./geo-helper.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header><nav class="barra"><a class="marca" href="./">bitácora <span>/ UBICACIÓN</span></a><span id="conexion" class="estado" role="status">Comprobando conexión</span></nav></header>
+  <main>
+    <section class="intro"><p class="eyebrow">GEOLOCALIZACIÓN CONSCIENTE</p><h1>Tu ubicación, bajo tu control.</h1><p>Adjunta una ubicación a tu reporte o elige una zona manualmente. Tú decides cuándo compartirla.</p></section>
+    <div class="columnas">
+      <section class="tarjeta" aria-labelledby="titulo-ubicacion">
+        <p class="eyebrow">01 / TU UBICACIÓN</p><h2 id="titulo-ubicacion">¿Dónde te encuentras?</h2><p class="secundario">Usa la ubicación de tu dispositivo para obtener tus coordenadas y conocer su precisión.</p>
+        <button id="adjuntar" class="principal" type="button">Adjuntar mi ubicación</button>
+        <section id="prepermiso" class="recuadro" aria-labelledby="titulo-permiso" hidden><h3 id="titulo-permiso">Antes de continuar</h3><p>Tu navegador te pedirá permiso para consultar tu ubicación. La usaremos solo para mostrar las coordenadas y su precisión en esta pantalla; no se envía a ningún servidor.</p><button id="confirmar" class="principal" type="button">Compartir mi ubicación</button><button id="cancelar" class="texto" type="button">Elegir zona manualmente</button></section>
+        <p id="aviso" class="aviso" role="status" aria-live="polite"></p>
+        <form id="formulario-zona" class="manual" hidden><label for="zona">Selecciona tu zona o ciudad</label><select id="zona" required><option value="">Elige una opción</option><option>Cuernavaca, Morelos</option><option>Jiutepec, Morelos</option><option>Temixco, Morelos</option><option>Cuautla, Morelos</option><option>Ciudad de México</option><option value="otra">Otra zona</option></select><div id="otra-zona" hidden><label for="zona-personalizada">Escribe tu zona o ciudad</label><input id="zona-personalizada" maxlength="100" placeholder="Tu zona o ciudad"></div><button class="secundario-boton" type="submit">Usar esta zona</button></form>
+        <button id="mostrar-manual" class="texto" type="button">Prefiero elegir una zona manualmente</button>
+      </section>
+      <section class="tarjeta" aria-labelledby="titulo-resultado"><p class="eyebrow">02 / RESULTADO</p><h2 id="titulo-resultado">Tu ubicación seleccionada</h2><p class="secundario">La precisión puede variar según el dispositivo y la señal disponible.</p><div id="vacio" class="vacio"><div class="pin" aria-hidden="true">⌖</div><h3>Todo comienza aquí</h3><p>Aún no has compartido tu ubicación ni seleccionado una zona.</p></div><div id="resultado" hidden><span id="calidad" class="etiqueta"></span><dl><div><dt>Latitud</dt><dd id="latitud"></dd></div><div><dt>Longitud</dt><dd id="longitud"></dd></div><div><dt>Margen de error</dt><dd id="precision"></dd></div><div><dt>Lectura</dt><dd id="fecha"></dd></div></dl><p class="nota">La etiqueta de precisión es una referencia basada en el margen de error; el navegador no identifica la fuente exacta de la señal.</p></div><div id="resultado-manual" hidden><span class="etiqueta">Zona manual</span><dl><div><dt>Zona o ciudad</dt><dd id="zona-elegida"></dd></div></dl><p class="nota">Esta selección no incluye coordenadas ni precisión.</p></div></section>
+    </div>
+  </main>
+</body>
+</html>
